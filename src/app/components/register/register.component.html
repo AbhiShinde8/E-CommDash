@@ -1,0 +1,80 @@
+<div class=" container p-5">
+    <div class="card p-3">
+        <div class="card-header bg-secondary">
+            <h1 class="text-light">Register Form</h1>
+        </div>
+        <div class="card-body">
+           <form [formGroup]="newUrgForm">
+            <div class="row">
+                <div class="col-xl-6 mb-3">
+                    <label for="firstname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter First Name here" formControlName="firstname">
+                    <!-- <div *ngIf="newUrgForm?.get('firstname')?.invalid  && newUrgForm.get('firstname')?.dirty || newUrgForm.get('firstname')?.touched")> -->
+                        <div *ngIf="newUrgForm?.get('firstname')?.invalid && (newUrgForm.get('firstname')?.dirty || newUrgForm.get('firstname')?.touched)">
+
+                        <div *ngIf="newUrgForm?.get('firstname')?.errors ">
+
+                            <p class="text-danger">First name is required !</p>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="col-xl-6 mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" placeholder="Enter Last Name here" formControlName="lastname">
+                <div *ngIf="newUrgForm?.get('lastname')?.invalid &&(newUrgForm.get('lastname')?.dirty || newUrgForm.get('lastname')?.touched)">
+                    <div *ngIf="newUrgForm.get('lastname')?.errors">
+                        <p class="text-danger">Last Name is required !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label for="contact" class="form-label">Contact</label>
+                <input type="text" class="form-control" placeholder="Enter Contact here" formControlName="contact">
+                <div *ngIf="newUrgForm.get('contact')?.invalid && (newUrgForm.get('contact')?.dirty || newUrgForm.get('contact')?.touched)">
+                    <div *ngIf="newUrgForm.get('contact')?.errors">
+                        <p class="text-danger">Contact is required !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Enter Mail here " formControlName="email" >
+                <div *ngIf="newUrgForm.get('email')?.invalid && (newUrgForm.get('email')?.dirty || newUrgForm.get('contact')?.touched)">
+                    <div *ngIf="newUrgForm.get('contact')?.errors">
+                        <p class="text-danger">Email is Required !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password here " formControlName="password">
+                <div *ngIf="newUrgForm.get('password')?.invalid && (newUrgForm.get('password')?.dirty || newUrgForm.get('password')?.touched)">
+                    <div *ngIf="newUrgForm.get('password')?.errors">
+                        <p class="text-danger">Password is required !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label for="confirmpassword" class="form-label">Confirm Password</label>
+                <input type="Password" class="form-control" placeholder="Enter confirm password here " formControlName="confirmpassword" >  <!--formGroup मधले नवे इथे वापरायचे -->
+                <div *ngIf="newUrgForm.get('confirmpassword')?.invalid && (newUrgForm.get('confirmpassword')?.dirty || newUrgForm.get('confirmpassword')?.touched)">
+                    <div *ngIf="newUrgForm.get('confirmpassword')?.errors">
+                    <p class="text-danger">
+                            Confirm password is required !
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+           </form>
+        </div>
+        <div class="card-footer">
+            <div class="col-xl-12 pt-3">
+               <button class="btn btn-primary float-end" (click)="register()" [disabled]="!newUrgForm.valid">Register</button> 
+          
+            </div>
+        </div>
+    </div>
+   
+</div>
